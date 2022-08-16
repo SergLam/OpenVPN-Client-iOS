@@ -29,13 +29,13 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     }()
     
     override init() {
-        _ = Settings.load()
+        _ = VPNSettings.load()
         
         super.init()
         
         Log.append(Util.localize("application-started", Util.getAppName()), .debug, .packetTunnelProvider)
         
-        profile = Settings.getSelectedProfile()
+        profile = VPNSettings.getSelectedProfile()
         dnsList = profile?.dnsList ?? []
     }
     

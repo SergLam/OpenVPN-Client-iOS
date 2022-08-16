@@ -18,7 +18,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         Bridge.clean()
         
         // Load app settings
-        _ = Settings.load()
+        _ = VPNSettings.load()
 
         return true
     }

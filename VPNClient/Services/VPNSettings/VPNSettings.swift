@@ -1,5 +1,5 @@
 //
-//  Settings.swift
+//  VPNSettings.swift
 //  VPNClient
 //
 //  Created by Serhii Liamtsev on 18/09/20.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// Structure to store app settings on UserDefaults
-public struct Settings: Codable {
+public struct VPNSettings: Codable, VPNSettingsProtocol {
     private static let SETTINGS_KEY = "vpnclient_settings"
     
     private static var _selectedProfileId: String = ""
@@ -21,16 +21,18 @@ public struct Settings: Codable {
     private static let jsonDecoder = JSONDecoder()
     private static let appGroupDefaults = UserDefaults(suiteName:Config.appGroupName)!
     
-    enum CodingKeys: CodingKey {
-        case selectedProfileId
-        case profiles
+    enum CodingKeys: String, CodingKey {
+        case selectedProfileId = "selected_profile_id"
+        case profiles = "profiles"
     }
     
+    // MARK: - Life cycle
     public init() {
-        selectedProfileId = Settings._selectedProfileId
-        profiles = Settings.getProfiles()
+        selectedProfileId = VPNSettings._selectedProfileId
+        profiles = VPNSettings.getProfiles()
     }
     
+    // MARK: - Public
     public static func getSelectedProfile() -> Profile? {
         var selectedProfile: Profile?
         
@@ -62,8 +64,25 @@ public struct Settings: Codable {
         save()
     }
     
+    public static func load() -> VPNSettings {
+        let settings_data = appGroupDefaults.value(forKey: SETTINGS_KEY) as? Data ?? nil
+        let value = settings_data != nil ? getValue(data: settings_data!) : VPNSettings()
+        
+        _selectedProfileId = value.selectedProfileId
+        _profiles = value.profiles
+        
+        return value
+    }
+    
+    public static func clean() {
+        appGroupDefaults.removeObject(forKey: SETTINGS_KEY)
+        _selectedProfileId = ""
+        _profiles = []
+    }
+    
+    // MARK: - Private
     private static func save() {
-        let settings = Settings()
+        let settings = VPNSettings()
         
         do {
             let encodedData = try jsonEncoder.encode(settings)
@@ -74,32 +93,16 @@ public struct Settings: Codable {
         }
     }
     
-    public static func load() -> Settings {
-        let settings_data = appGroupDefaults.value(forKey: SETTINGS_KEY) as? Data ?? nil
-        let value = settings_data != nil ? getValue(data: settings_data!) : Settings()
-        
-        _selectedProfileId = value.selectedProfileId
-        _profiles = value.profiles
-        
-        return value
-    }
-    
-    private static func getValue(data: Data) -> Settings {
-        var value: Settings
+    private static func getValue(data: Data) -> VPNSettings {
+        var value: VPNSettings
         
         do {
-            value = try jsonDecoder.decode(Settings.self, from: data)
+            value = try jsonDecoder.decode(VPNSettings.self, from: data)
         } catch {
-            value = Settings()
+            value = VPNSettings()
             NSLog(error.localizedDescription)
         }
         
         return value
-    }
-    
-    public static func clean() {
-        appGroupDefaults.removeObject(forKey: SETTINGS_KEY)
-        _selectedProfileId = ""
-        _profiles = []
     }
 }

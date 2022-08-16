@@ -12,13 +12,15 @@
 		0436177D28AAC6EF00E7FCCA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177728AAC6EF00E7FCCA /* Log.swift */; };
 		0436177E28AAC6EF00E7FCCA /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177828AAC6EF00E7FCCA /* Util.swift */; };
 		0436177F28AAC6EF00E7FCCA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177928AAC6EF00E7FCCA /* Message.swift */; };
-		0436178028AAC6EF00E7FCCA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177A28AAC6EF00E7FCCA /* Settings.swift */; };
+		0436178028AAC6EF00E7FCCA /* VPNSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177A28AAC6EF00E7FCCA /* VPNSettings.swift */; };
 		0436178128AAC74700E7FCCA /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177628AAC6EF00E7FCCA /* Bridge.swift */; };
 		0436178228AAC74900E7FCCA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177528AAC6EF00E7FCCA /* Config.swift */; };
 		0436178328AAC74C00E7FCCA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177728AAC6EF00E7FCCA /* Log.swift */; };
 		0436178428AAC74E00E7FCCA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177928AAC6EF00E7FCCA /* Message.swift */; };
-		0436178528AAC75100E7FCCA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177A28AAC6EF00E7FCCA /* Settings.swift */; };
+		0436178528AAC75100E7FCCA /* VPNSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177A28AAC6EF00E7FCCA /* VPNSettings.swift */; };
 		0436178628AAC75400E7FCCA /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436177828AAC6EF00E7FCCA /* Util.swift */; };
+		0436178928ABB6CB00E7FCCA /* VPNSettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436178828ABB6CB00E7FCCA /* VPNSettingsProtocol.swift */; };
+		0436178A28ABB76A00E7FCCA /* VPNSettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436178828ABB6CB00E7FCCA /* VPNSettingsProtocol.swift */; };
 		04C6348E28AA9FF300AF0926 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED6A90442580849D00243BD4 /* Localizable.strings */; };
 		95B0C039C270491660E28583 /* Pods_App_TunnelProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4468048CC7D985470D17B941 /* Pods_App_TunnelProvider.framework */; };
 		B2804C4B44C78E085551EFA9 /* Pods_App_VPNClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56173E50ED3EFB065E78DEA4 /* Pods_App_VPNClient.framework */; };
@@ -72,7 +74,8 @@
 		0436177728AAC6EF00E7FCCA /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		0436177828AAC6EF00E7FCCA /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		0436177928AAC6EF00E7FCCA /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		0436177A28AAC6EF00E7FCCA /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		0436177A28AAC6EF00E7FCCA /* VPNSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPNSettings.swift; sourceTree = "<group>"; };
+		0436178828ABB6CB00E7FCCA /* VPNSettingsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNSettingsProtocol.swift; sourceTree = "<group>"; };
 		043EA52E28AA97970045450B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13519213F5DC850A44E7EF60 /* Pods-App-VPNClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-VPNClient.release.xcconfig"; path = "Target Support Files/Pods-App-VPNClient/Pods-App-VPNClient.release.xcconfig"; sourceTree = "<group>"; };
 		4468048CC7D985470D17B941 /* Pods_App_TunnelProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_TunnelProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +149,15 @@
 				ED2C5A4F2515BA9F00266110 /* ProfileViewModel.swift */,
 			);
 			path = VPNProfile;
+			sourceTree = "<group>";
+		};
+		0436178728AB834C00E7FCCA /* VPNSettings */ = {
+			isa = PBXGroup;
+			children = (
+				0436178828ABB6CB00E7FCCA /* VPNSettingsProtocol.swift */,
+				0436177A28AAC6EF00E7FCCA /* VPNSettings.swift */,
+			);
+			path = VPNSettings;
 			sourceTree = "<group>";
 		};
 		043EA52F28AA97AA0045450B /* BundleFiles */ = {
@@ -317,7 +329,6 @@
 				0436177528AAC6EF00E7FCCA /* Config.swift */,
 				0436177728AAC6EF00E7FCCA /* Log.swift */,
 				0436177928AAC6EF00E7FCCA /* Message.swift */,
-				0436177A28AAC6EF00E7FCCA /* Settings.swift */,
 				0436177828AAC6EF00E7FCCA /* Util.swift */,
 			);
 			path = Helpers;
@@ -342,6 +353,7 @@
 		ED40EB2125CB30F0001FFEB7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0436178728AB834C00E7FCCA /* VPNSettings */,
 				ED2C5A382515340000266110 /* Helpers */,
 				EDA52BA72516833500EB4277 /* Connection.swift */,
 			);
@@ -551,8 +563,9 @@
 				ED40EB1425CB0074001FFEB7 /* AlertControlView.swift in Sources */,
 				0436177E28AAC6EF00E7FCCA /* Util.swift in Sources */,
 				ED02603C24D60A3800D00301 /* SceneDelegate.swift in Sources */,
-				0436178028AAC6EF00E7FCCA /* Settings.swift in Sources */,
+				0436178028AAC6EF00E7FCCA /* VPNSettings.swift in Sources */,
 				ED02603E24D60A3800D00301 /* ProfileView.swift in Sources */,
+				0436178928ABB6CB00E7FCCA /* VPNSettingsProtocol.swift in Sources */,
 				0436177B28AAC6EF00E7FCCA /* Config.swift in Sources */,
 				ED2C5A502515BA9F00266110 /* ProfileViewModel.swift in Sources */,
 				EDA52BA82516833500EB4277 /* Connection.swift in Sources */,
@@ -569,7 +582,8 @@
 				0436178328AAC74C00E7FCCA /* Log.swift in Sources */,
 				0436178628AAC75400E7FCCA /* Util.swift in Sources */,
 				0436178428AAC74E00E7FCCA /* Message.swift in Sources */,
-				0436178528AAC75100E7FCCA /* Settings.swift in Sources */,
+				0436178528AAC75100E7FCCA /* VPNSettings.swift in Sources */,
+				0436178A28ABB76A00E7FCCA /* VPNSettingsProtocol.swift in Sources */,
 				ED594CD124DBE4010069D301 /* PacketTunnelProvider.swift in Sources */,
 				0436178128AAC74700E7FCCA /* Bridge.swift in Sources */,
 			);

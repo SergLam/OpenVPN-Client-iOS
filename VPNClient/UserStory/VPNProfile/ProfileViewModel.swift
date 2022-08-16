@@ -67,8 +67,8 @@ public class ProfileViewModel {
     func mainButton() -> AnyView {
         func button(_ text: String, _ bgColor: Color, textColor: Color = .white, tapable: Bool = true) -> AnyView {
             let button = AnyView(Button(action: {
-                Settings.saveProfile(profile: self.profile)
-                Settings.setSelectedProfile(profileId: self.profile.profileId)
+                VPNSettings.saveProfile(profile: self.profile)
+                VPNSettings.setSelectedProfile(profileId: self.profile.profileId)
                 
                 self.mainButtonAction()
             }) {
